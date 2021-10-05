@@ -159,8 +159,7 @@ class Client :
                     elif next_message == 'BAN':
                         self.sock.send('connection refused because you were ban!'.encode('utf-8'))
                         self.sock.close()
-                        self.stop_thread = True        
-                    #nen rasindi iyyipoyindi
+                        self.stop_thread = True      
                 else:
                     if self.gui_done:
                         self.text_area.config(state='normal')
