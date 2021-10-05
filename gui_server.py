@@ -49,7 +49,6 @@ def handle(client):
                 else:
                     client.send('command was refused'.encode('utf-8'))
 
-                #nen rasindi iyyipoyindi
             else:
                 broadcast(decMessage)
         except:
@@ -118,7 +117,6 @@ def kick_user(name):
         client_to_kick.close()
         nicknames.remove(name)
         broadcast(f'{name} was kicked by admin!'.encode('utf-8'))
-#nen rasindi iyyipoyindi
 
 print("server is listening")
 receive()
