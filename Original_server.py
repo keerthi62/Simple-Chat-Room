@@ -24,7 +24,6 @@ def handle(client):
     while True:
         try:
             # Broadcasting Messages
-            #  #nen rasindi
             msg = message = client.recv(1024)
             print(msg)
             if msg.decode('ascii').startswith('KICK'):
@@ -45,7 +44,6 @@ def handle(client):
                 else:
                     client.send('command was refused'.encode('ascii'))
 
-                #nen rasindi iyyipoyindi
             else:
                 broadcast(message)
         except:
@@ -71,7 +69,6 @@ def receive():
 
         nickname = client.recv(1024).decode('ascii')
 
-        #nen rasindi
         with open('bans.txt','r') as f:
             bans = f.readlines()
 
@@ -89,8 +86,6 @@ def receive():
                 client.send('REFUSE'.encode('ascii'))
                 client.close()
                 continue 
-        #nen rasindi iyyipoyindi     
-
 
         nicknames.append(nickname)                   
         clients.append(client)
@@ -104,7 +99,6 @@ def receive():
         thread = threading.Thread(target=handle, args=(client,))
         thread.start()
 
-#nen rasindi 
 def kick_user(name):
     if name in nicknames:
         name_index = nicknames.index(name)
@@ -114,7 +108,6 @@ def kick_user(name):
         client_to_kick.close()
         nicknames.remove(name)
         broadcast(f'{name} was kicked by admin!'.encode('ascii'))
-#nen rasindi iyyipoyindi
 
 print("server is listening")
 receive()
